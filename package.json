@@ -1,5 +1,5 @@
 {
-  "name": "create-custom-next",
+  "name": "@tyecode/cc-next",
   "version": "1.0.0",
   "description": "CLI tool to create a Next.js app with custom setup options for Tailwind CSS, TypeScript, and ESLint + Prettier.",
   "private": false,
@@ -18,13 +18,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tyecode/create-custom-next.git"
+    "url": "git+https://github.com/tyecode/cc-next.git"
   },
   "main": "script.js",
   "bin": {
     "create-custom-next": "script.js"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "node script.js"
+  },
   "dependencies": {
     "inquirer": "^8.2.6"
   }

@@ -1,4 +1,4 @@
-# Create Custom Next
+# tyecode/cc-next
 
 This project is a Node.js script that automates the setup of a Next.js project with TypeScript, Tailwind CSS, Prettier, and ESLint. It allows the user to select their preferred package manager and handles all necessary configurations, including setting up Prettier and ESLint with Tailwind CSS formatting, creating essential directories, and installing helpful packages like clsx and tailwind-merge.
 
@@ -8,6 +8,7 @@ This project is a Node.js script that automates the setup of a Next.js project w
 - [**Project Structure**](#project-structure)
 - [**Dependencies**](#dependencies)
 - [**Configuration**](#configuration)
+- [**Contributing**](#contributing)
 - [**License**](#license)
 
 ## Feature
@@ -24,7 +25,7 @@ You can use `npx` to run the setup script without cloning the repository.
 1. Run the following command:
 
 ```bash
-npx create-custom-next
+npx @tyecode/cc-next
 ```
 
 2. Follow the prompts to specify your project name and select a package manager.
@@ -134,4 +135,4 @@ Make sure your code adheres to the existing code style and includes relevant tes
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/tyecode/create-custom-next/blob/main/README.md) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/tyecode/cc-next/blob/main/LICENSE) file for details.
