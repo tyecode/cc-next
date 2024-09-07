@@ -1,6 +1,6 @@
 {
   "name": "@tyecode/cc-next",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to create a Next.js app with custom setup options for Tailwind CSS, TypeScript, and ESLint + Prettier.",
   "private": false,
   "license": "MIT",
