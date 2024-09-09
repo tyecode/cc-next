@@ -1,6 +1,8 @@
-# tyecode/cc-next
+# cc-next
 
 This project is a Node.js script that automates the setup of a Next.js project with TypeScript, Tailwind CSS, Prettier, and ESLint. It allows the user to select their preferred package manager and handles all necessary configurations, including setting up Prettier and ESLint with Tailwind CSS formatting, creating essential directories, and installing helpful packages like clsx and tailwind-merge.
+
+## Table of Contents
 
 - [**Feature**](#feature)
 - [**Getting Started**](#getting-started)
@@ -44,8 +46,8 @@ Based on your input, the script will:
 - Create a new Next.js project using the selected package manager.
 - Set up TypeScript, Tailwind CSS, and various project structure elements.
 - Install Prettier and ESLint, along with the necessary plugins and configuration files.
-- Install utility packages (clsx, tailwind-merge).
-- Create essential directories (src/components, src/hooks, src/utils).
+- Install utility packages (i.e. clsx, tailwind-merge).
+- Create essential directories (i.e. components, hooks, utils).
 
 ## Project Structure
 
@@ -108,30 +110,7 @@ ESLint Configuration `.eslintrc.json`
 
 Contributions are welcome, and this project is a great starting point for anyone looking to get involved in open-source development. Whether you’re new to contributing or a seasoned developer, your input is valued!
 
-To contribute, follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix:
-
-```bash
-git checkout -b feature/my-new-feature
-```
-
-3. Make your changes and commit them:
-
-```bash
-git commit -m "feat: Add some feature"
-```
-
-4. Push the branch to your fork:
-
-```bash
-git push origin feature/my-new-feature
-```
-
-5. Open a pull request to the main repository.
-
-Make sure your code adheres to the existing code style and includes relevant tests, if applicable. Contributions of all sizes are appreciated, and feel free to ask questions if needed.
+Please read the [contributing guide](https://github.com/tyecode/cc-next/blob/main/CONTRIBUTING.md).
 
 ## License
 
