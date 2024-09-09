@@ -21,6 +21,13 @@ program.option("--test", "Run the test setup script");
 program.parse(process.argv);
 
 const options = program.opts();
-const scriptToRun = options.test ? "scripts/setup.test.js" : "scripts/setup.js";
+const scriptToRun = options.test
+  ? path.resolve(__dirname, "scripts/setup.test.js")
+  : path.resolve(__dirname, "scripts/setup.js");
+
+if (!fs.existsSync(scriptToRun)) {
+  console.error(`Error: Cannot find module '${scriptToRun}'`);
+  process.exit(1);
+}
 
 spawnSync("node", [scriptToRun], { stdio: "inherit" });

@@ -1,6 +1,6 @@
 {
   "name": "@tyecode/cc-next",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "CLI tool to create a Next.js app with custom setup for Tailwind CSS, TypeScript, and ESLint + Prettier.",
   "private": false,
   "type": "module",
@@ -23,12 +23,16 @@
   },
   "main": "index.js",
   "bin": {
-    "cc-next": "./index.js"
+    "cc-next": "index.js"
   },
   "scripts": {
     "dev": "node index.js",
     "test": "node index.js --test"
   },
+  "files": [
+    "index.js",
+    "scripts/"
+  ],
   "dependencies": {
     "commander": "^12.1.0",
     "inquirer": "^8.2.6"
