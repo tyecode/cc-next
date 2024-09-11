@@ -12,17 +12,11 @@ export default {
   output: [
     {
       dir: "dist",
-      format: "esm", // ES module format
+      format: "esm",
       entryFileNames: "[name].js",
       sourcemap: true,
     },
   ],
-  plugins: [
-    nodeResolve(), // Resolve Node.js modules
-    commonjs(), // Convert CommonJS modules to ES6
-    typescript(),
-    json(),
-    preserveShebang(), // Add shebang support
-  ],
-  external: ["execa", "inquirer"], // Mark these dependencies as external
+  plugins: [nodeResolve(), commonjs(), typescript(), json(), preserveShebang()],
+  external: ["execa", "inquirer"],
 };
