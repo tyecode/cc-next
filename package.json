@@ -21,23 +21,40 @@
     "type": "git",
     "url": "git+https://github.com/tyecode/cc-next.git"
   },
-  "main": "index.js",
+  "main": "dist/main.js",
   "bin": {
-    "cc-next": "index.js"
+    "cc-next": "dist/cli.js"
   },
   "scripts": {
-    "dev": "node index.js",
-    "test": "node index.js --test"
+    "dev": "node dist/cli.js",
+    "build": "pnpm run lint && rollup -c",
+    "test": "echo 'Run your tests here'",
+    "lint": "eslint .",
+    "prepare": "pnpm run lint"
   },
   "files": [
-    "index.js",
-    "scripts/"
+    "dist/",
+    "src/"
   ],
   "dependencies": {
     "commander": "^12.1.0",
+    "execa": "^9.3.1",
     "inquirer": "^8.2.6"
   },
   "devDependencies": {
-    "@types/inquirer": "^9.0.7"
+    "@eslint/js": "^9.10.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.5.4",
+    "@typescript-eslint/eslint-plugin": "^8.5.0",
+    "@typescript-eslint/parser": "^8.5.0",
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0",
+    "rollup": "^2.56.3",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
+    "typescript": "5.5.4"
   }
 }
