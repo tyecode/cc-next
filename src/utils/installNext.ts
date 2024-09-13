@@ -1,6 +1,5 @@
 import { execa } from "execa";
 
-// Define a map of commands for each package manager
 const createNextAppCommands: Record<string, string[]> = {
   npm: [
     "npx",
@@ -40,9 +39,8 @@ const createNextAppCommands: Record<string, string[]> = {
   ],
 };
 
-// Define the interface for the options
 export interface InstallOptions {
-  packageManager: "npm" | "yarn" | "pnpm";
+  packageManager: string;
   projectName: string;
 }
 

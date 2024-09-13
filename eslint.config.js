@@ -17,6 +17,7 @@ export default [
     rules: {
       "@typescript-eslint/no-unused-vars": ["error"],
       "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-this-alias": "off",
     },
   },
 ];

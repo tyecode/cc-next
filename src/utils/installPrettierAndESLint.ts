@@ -1,6 +1,5 @@
 import { execa } from "execa";
 
-// Define a map of commands for each package manager
 const installCommands: Record<string, string[]> = {
   npm: [
     "npm",
@@ -34,9 +33,8 @@ const installCommands: Record<string, string[]> = {
   ],
 };
 
-// Define the interface for the options
 export interface InstallOptions {
-  packageManager: "npm" | "yarn" | "pnpm";
+  packageManager: string;
   projectName: string;
 }
 
@@ -47,13 +45,11 @@ export async function installPrettierAndESLint({
   try {
     console.log("⚙️  Installing Prettier and ESLint...");
 
-    // Get the command array based on the selected package manager
     const command = installCommands[packageManager];
     if (!command) {
       throw new Error("Unsupported package manager.");
     }
 
-    // Execute the command in the project directory
     await execa(command[0], command.slice(1), {
       stdio: "inherit",
       cwd: projectName,

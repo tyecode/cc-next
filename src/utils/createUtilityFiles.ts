@@ -4,12 +4,10 @@ import { join } from "path";
 function createUtilityFiles({ projectName }: { projectName: string }) {
   const utilsDir = join(process.cwd(), projectName, "src", "utils");
 
-  // Ensure the utils directory exists
   if (!existsSync(utilsDir)) {
     mkdirSync(utilsDir, { recursive: true });
   }
 
-  // Template string with indented code
   const cnFileContent = `
     import { ClassValue, clsx } from "clsx";
     import { twMerge } from "tailwind-merge";
@@ -19,13 +17,11 @@ function createUtilityFiles({ projectName }: { projectName: string }) {
     };
   `;
 
-  // Remove leading indentation
   const formattedContent = cnFileContent
     .split("\n")
     .map((line) => line.trim())
     .join("\n");
 
-  // Write the content to cn.ts
   writeFileSync(join(utilsDir, "cn.ts"), formattedContent);
 }
 

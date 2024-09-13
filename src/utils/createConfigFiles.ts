@@ -5,19 +5,16 @@ function createConfigFiles({ projectName }: { projectName: string }) {
   const projectRoot = join(process.cwd(), projectName);
   const vscodeDir = join(projectRoot, ".vscode");
 
-  // Ensure the project root directory exists
   if (!existsSync(projectRoot)) {
     mkdirSync(projectRoot, { recursive: true });
   }
 
-  // Ensure the .vscode directory exists
   if (!existsSync(vscodeDir)) {
     mkdirSync(vscodeDir, { recursive: true });
   }
 
-  console.log("⚙️  Creating Prettier and ESLint configuration files...");
+  console.log("🔧 Creating Prettier and ESLint configuration files...");
 
-  // Create .prettierrc.json
   writeFileSync(
     join(projectRoot, ".prettierrc.json"),
     JSON.stringify(
@@ -36,7 +33,6 @@ function createConfigFiles({ projectName }: { projectName: string }) {
     )
   );
 
-  // Create .eslintrc.json
   writeFileSync(
     join(projectRoot, ".eslintrc.json"),
     JSON.stringify(
@@ -52,7 +48,6 @@ function createConfigFiles({ projectName }: { projectName: string }) {
     )
   );
 
-  // Create .vscode/settings.json
   writeFileSync(
     join(vscodeDir, "settings.json"),
     JSON.stringify(
