@@ -1,7 +1,7 @@
 # dependencies
 /node_modules
 /dist
-/my-next-app
+/next-app
 
 # misc
 .DS_Store

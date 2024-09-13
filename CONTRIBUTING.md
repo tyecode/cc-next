@@ -30,7 +30,7 @@ pnpm install
 5. Create a new branch for your feature:
 
 ```bash
-git checkout -b feat/my-new-feature
+git checkout -b feature/my-new-feature
 ```
 
 6. Make your changes and commit them:
@@ -42,7 +42,7 @@ git commit -m "feat: add some feature"
 7. Push the branch to your fork:
 
 ```bash
-git push origin feat/my-new-feature
+git push origin feature/my-new-feature
 ```
 
 8. Open a pull request to the main repository.
@@ -84,5 +84,5 @@ Learn more about [Conventional Commits](https://www.conventionalcommits.org/en/v
 Before committing your changes, please make sure to run the test to ensure that everything is working correctly. You can run the test using the following command:
 
 ```bash
-pnpm test
+pnpm run test
 ```
