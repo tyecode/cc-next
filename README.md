@@ -1,8 +1,8 @@
-# cc-next
+# tyecode/cc-next
 
 This project is a Node.js script that automates the setup of a Next.js project with TypeScript, Tailwind CSS, Prettier, and ESLint. It allows the user to select their preferred package manager and handles all necessary configurations, including setting up Prettier and ESLint with Tailwind CSS formatting, creating essential directories, and installing helpful packages like clsx and tailwind-merge.
 
-## Table of Contents
+## Contents
 
 - [**Feature**](#feature)
 - [**Getting Started**](#getting-started)
@@ -110,7 +110,7 @@ ESLint Configuration `.eslintrc.json`
 
 Contributions are welcome, and this project is a great starting point for anyone looking to get involved in open-source development. Whether you’re new to contributing or a seasoned developer, your input is valued!
 
-Please read the [contributing guide](https://github.com/tyecode/cc-next/blob/main/CONTRIBUTING.md).
+Please read the [Contributing guideline](https://github.com/tyecode/cc-next/blob/main/CONTRIBUTING.md).
 
 ## License
 

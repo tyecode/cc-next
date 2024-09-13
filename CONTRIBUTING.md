@@ -84,5 +84,5 @@ Learn more about [Conventional Commits](https://www.conventionalcommits.org/en/v
 Before committing your changes, please make sure to run the test to ensure that everything is working correctly. You can run the test using the following command:
 
 ```bash
-pnpm test
+pnpm run test
 ```
