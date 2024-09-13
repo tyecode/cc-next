@@ -1,7 +1,6 @@
-import inquirer from "inquirer";
+import { promptProjectName, promptPackageManager } from "./prompts";
 
 import installNext from "./utils/installNext";
-import selectPackageManager from "./utils/selectPackageManager";
 import createConfigFiles from "./utils/createConfigFiles";
 import createUtilityFiles from "./utils/createUtilityFiles";
 import installAdditionalPackages from "./utils/installAdditionalPackages";
@@ -32,27 +31,6 @@ async function main() {
   } catch (error) {
     handleError(error);
   }
-}
-
-async function promptProjectName(): Promise<string> {
-  const { projectName } = await inquirer.prompt<{ projectName: string }>({
-    type: "input",
-    name: "projectName",
-    message: "Enter the name of your Next.js project:",
-    default: "next-app",
-  });
-  return projectName;
-}
-
-async function promptPackageManager(): Promise<"npm" | "yarn" | "pnpm"> {
-  const packageManager = await selectPackageManager();
-  const validPackageManagers: Set<string> = new Set(["npm", "yarn", "pnpm"]);
-
-  if (!validPackageManagers.has(packageManager)) {
-    throw new Error(`Invalid package manager selected: ${packageManager}`);
-  }
-
-  return packageManager as "npm" | "yarn" | "pnpm";
 }
 
 function handleError(error: unknown): void {
