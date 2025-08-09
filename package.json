@@ -29,7 +29,13 @@
     "dev": "node dist/cli.js",
     "build": "pnpm run lint && rollup -c",
     "test": "jest --config jest.config.cjs",
+    "test:watch": "jest --config jest.config.cjs --watch",
+    "test:coverage": "jest --config jest.config.cjs --coverage",
     "lint": "eslint . --ignore-pattern dist/",
+    "lint:fix": "eslint . --ignore-pattern dist/ --fix",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "commit": "cz",
     "prepare": "husky"
   },
   "files": [
