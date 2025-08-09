@@ -1,3 +1,4 @@
+import dedent from "dedent";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 
@@ -8,14 +9,14 @@ function createUtilityFiles({ projectName }: { projectName: string }) {
     mkdirSync(utilsDir, { recursive: true });
   }
 
-  const cnFileContent = `
+  const cnFileContent = dedent(`
     import { ClassValue, clsx } from "clsx";
     import { twMerge } from "tailwind-merge";
 
     export const cn = (...inputs: ClassValue[]) => {
       return twMerge(clsx(inputs));
     };
-  `;
+  `);
 
   const formattedContent = cnFileContent
     .split("\n")

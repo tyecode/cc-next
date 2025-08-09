@@ -38,6 +38,7 @@
   ],
   "dependencies": {
     "commander": "^12.1.0",
+    "dedent": "^1.5.3",
     "execa": "^9.3.1",
     "inquirer": "^8.2.6"
   },
