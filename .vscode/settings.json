@@ -2,7 +2,5 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "cSpell.words": [
-    "execa"
-  ]
+  "cSpell.words": ["elif", "execa", "oneline"]
 }
