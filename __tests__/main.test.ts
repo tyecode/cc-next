@@ -30,6 +30,9 @@ jest.mock("../src/utils/installPrettierAndESLint");
 jest.mock("../src/utils/updatePackageJson");
 jest.mock("../src/utils/runFormatFix");
 jest.mock("../src/utils/createDirectories");
+jest.mock("../src/utils/performanceMonitor");
+jest.mock("../src/templates/index");
+jest.mock("../src/utils/dryRunPreview");
 
 describe("main setup script", () => {
   const packageManager = "pnpm";
@@ -43,8 +46,26 @@ describe("main setup script", () => {
     (promptProjectName as jest.Mock).mockResolvedValueOnce("test-project");
     (promptPackageManager as jest.Mock).mockResolvedValueOnce("pnpm");
 
-    // Run the main setup script
-    await main();
+    // Mock the template
+    const mockTemplate = {
+      name: "basic",
+      description: "Basic template",
+      features: [],
+      additionalPackages: ["clsx"],
+      devDependencies: [],
+      scripts: {},
+      directories: ["src/components"],
+      configFiles: [".prettierrc.json"],
+    };
+
+    // Mock getTemplate
+    const getTemplateMock = jest.requireMock(
+      "../src/templates/index"
+    ).getTemplate;
+    getTemplateMock.mockReturnValue(mockTemplate);
+
+    // Run the main setup script with options
+    await main({ template: "basic" });
 
     // Verify that all utility functions were called with the correct arguments
     expect(promptProjectName).toHaveBeenCalledTimes(1);
@@ -60,18 +81,22 @@ describe("main setup script", () => {
     expect(installAdditionalPackages.default).toHaveBeenCalledWith({
       packageManager,
       projectName,
+      template: mockTemplate,
     });
     expect(createConfigFiles.default).toHaveBeenCalledWith({
       projectName,
+      template: mockTemplate,
     });
     expect(createUtilityFiles.default).toHaveBeenCalledWith({
       projectName,
     });
     expect(createDirectories.default).toHaveBeenCalledWith({
       projectName,
+      template: mockTemplate,
     });
     expect(updatePackageJson.default).toHaveBeenCalledWith({
       projectName,
+      template: mockTemplate,
     });
     expect(runFormatFix.default).toHaveBeenCalledWith({
       projectName,

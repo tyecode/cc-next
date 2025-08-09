@@ -1,42 +1,83 @@
 import { execa } from "execa";
-
-const installCommands: Record<string, string[]> = {
-  npm: ["npm", "install", "clsx", "tailwind-merge"],
-  yarn: ["yarn", "add", "clsx", "tailwind-merge"],
-  pnpm: ["pnpm", "add", "clsx", "tailwind-merge"],
-};
+import { TemplateConfig } from "../types.js";
 
 export interface InstallOptions {
   packageManager: string;
   projectName: string;
+  template: TemplateConfig;
 }
 
 export async function installAdditionalPackages({
   packageManager,
   projectName,
+  template,
 }: InstallOptions): Promise<void> {
-  try {
-    console.log("⚙️  Installing clsx and tailwind-merge...");
+  console.log("📦 Installing additional packages...");
 
-    const command = installCommands[packageManager];
-    if (!command) {
-      throw new Error("Unsupported package manager.");
+  const additionalPackages = template.additionalPackages;
+  const devDependencies = template.devDependencies;
+
+  try {
+    // Install regular dependencies
+    if (additionalPackages.length > 0) {
+      console.log(`Installing dependencies: ${additionalPackages.join(", ")}`);
+      switch (packageManager) {
+        case "npm":
+          await execa("npm", ["install", ...additionalPackages], {
+            cwd: projectName,
+            stdio: "inherit",
+          });
+          break;
+        case "yarn":
+          await execa("yarn", ["add", ...additionalPackages], {
+            cwd: projectName,
+            stdio: "inherit",
+          });
+          break;
+        case "pnpm":
+          await execa("pnpm", ["add", ...additionalPackages], {
+            cwd: projectName,
+            stdio: "inherit",
+          });
+          break;
+        default:
+          throw new Error("Unsupported package manager.");
+      }
     }
 
-    await execa(command[0], command.slice(1), {
-      stdio: "inherit",
-      cwd: projectName,
-    });
+    // Install dev dependencies
+    if (devDependencies.length > 0) {
+      console.log(`Installing dev dependencies: ${devDependencies.join(", ")}`);
+      switch (packageManager) {
+        case "npm":
+          await execa("npm", ["install", "--save-dev", ...devDependencies], {
+            cwd: projectName,
+            stdio: "inherit",
+          });
+          break;
+        case "yarn":
+          await execa("yarn", ["add", "--dev", ...devDependencies], {
+            cwd: projectName,
+            stdio: "inherit",
+          });
+          break;
+        case "pnpm":
+          await execa("pnpm", ["add", "--save-dev", ...devDependencies], {
+            cwd: projectName,
+            stdio: "inherit",
+          });
+          break;
+        default:
+          throw new Error("Unsupported package manager.");
+      }
+    }
 
-    console.log("✅ clsx and tailwind-merge installed successfully.");
+    console.log("✅ Additional packages installed successfully.");
   } catch (error) {
     if (error instanceof Error) {
-      console.error(
-        "❌ Failed to install clsx and tailwind-merge:",
-        error.message
-      );
+      console.error("❌ Failed to install additional packages:", error.message);
     } else {
-      console.error("❌ Failed to install clsx and tailwind-merge:", error);
+      console.error("❌ Failed to install additional packages:", error);
     }
     throw error;
   }
