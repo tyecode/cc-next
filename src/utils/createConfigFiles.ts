@@ -1,7 +1,8 @@
 import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
+import { TemplateConfig } from "../types.js";
 
-function createConfigFiles({ projectName }: { projectName: string }) {
+function createConfigFiles({ projectName, template }: { projectName: string; template: TemplateConfig }) {
   const projectRoot = join(process.cwd(), projectName);
   const vscodeDir = join(projectRoot, ".vscode");
 
@@ -13,7 +14,7 @@ function createConfigFiles({ projectName }: { projectName: string }) {
     mkdirSync(vscodeDir, { recursive: true });
   }
 
-  console.log("🔧 Creating Prettier and ESLint configuration files...");
+  console.log(`🔧 Creating configuration files for ${template.name} template...`);
 
   writeFileSync(
     join(projectRoot, ".prettierrc.json"),
