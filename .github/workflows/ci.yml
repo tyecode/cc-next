@@ -146,7 +146,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           # Determine release type from input
           RELEASE_TYPE="${{ github.event.inputs.release-type }}"
           if [ "$RELEASE_TYPE" = "auto" ]; then
@@ -162,6 +162,6 @@ jobs:
               RELEASE_TYPE="patch"
             fi
           fi
-          
+
           echo "Creating $RELEASE_TYPE release..."
           pnpm run release:$RELEASE_TYPE
