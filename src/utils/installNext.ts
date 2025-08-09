@@ -12,6 +12,7 @@ const createNextAppCommands: Record<string, string[]> = {
     "--import-alias",
     "@/*",
     "--use-npm",
+    "--yes",
   ],
   yarn: [
     "yarn",
@@ -24,6 +25,7 @@ const createNextAppCommands: Record<string, string[]> = {
     "--src-dir",
     "--import-alias",
     "@/*",
+    "--yes",
   ],
   pnpm: [
     "pnpm",
@@ -36,6 +38,7 @@ const createNextAppCommands: Record<string, string[]> = {
     "--src-dir",
     "--import-alias",
     "@/*",
+    "--yes",
   ],
 };
 
